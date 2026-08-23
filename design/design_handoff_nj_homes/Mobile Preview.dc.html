@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NJ Homes — mobile preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: #1C1A17; color: #EFE9DF; font-family: Archivo, Helvetica, Arial, sans-serif; }
+  a { color: #C29862; text-decoration: none; }
+  a:hover { color: #EFE9DF; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:26px;padding:44px 20px 60px">
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;justify-content:center;text-align:center">
+    <span style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#8A8072">Mobile preview · 390 × 844</span>
+    <a href="NJ Homes.dc.html" style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase">Open full site →</a>
+  </div>
+
+  <div style="display:flex;gap:12px">
+    <sc-if value="{{ onHome }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ showHome }}" style="cursor:pointer;background:#EFE9DF;color:#14130F;border:1px solid rgba(239,233,223,0.25);padding:10px 20px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase">Home</button>
+      <button onClick="{{ showBlog }}" style="cursor:pointer;background:transparent;color:#EFE9DF;border:1px solid rgba(239,233,223,0.25);padding:10px 20px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase">Blog</button>
+    </sc-if>
+    <sc-if value="{{ onBlog }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ showHome }}" style="cursor:pointer;background:transparent;color:#EFE9DF;border:1px solid rgba(239,233,223,0.25);padding:10px 20px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase">Home</button>
+      <button onClick="{{ showBlog }}" style="cursor:pointer;background:#EFE9DF;color:#14130F;border:1px solid rgba(239,233,223,0.25);padding:10px 20px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase">Blog</button>
+    </sc-if>
+  </div>
+
+  <div style="width:414px;max-width:100%;border-radius:56px;padding:12px;background:#0A0908;box-shadow:0 40px 90px -40px rgba(0,0,0,0.9),0 0 0 1px rgba(239,233,223,0.14)">
+    <div style="position:relative;border-radius:44px;overflow:hidden;background:#EFE9DF;height:844px">
+      <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:30px;border-radius:18px;background:#0A0908;z-index:3;pointer-events:none"></div>
+      <iframe ref="{{ frameRef }}" title="NJ Homes mobile preview" style="width:390px;height:844px;border:none;display:block;margin:0 auto"></iframe>
+      <div style="position:absolute;bottom:9px;left:50%;transform:translateX(-50%);width:132px;height:5px;border-radius:3px;background:rgba(20,19,15,0.5);z-index:3;pointer-events:none"></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const PAGES = { home: "NJ Homes.dc.html", blog: "NJ Homes Blog.dc.html" };
+
+class Component extends DCLogic {
+  state = { page: "home" };
+
+  renderVals() {
+    const p = this.state.page;
+    return {
+      frameRef: (el) => { if (el && el.dataset.page !== p) { el.dataset.page = p; el.src = PAGES[p]; } },
+      showHome: () => this.setState({ page: "home" }),
+      showBlog: () => this.setState({ page: "blog" }),
+      onHome: p === "home",
+      onBlog: p === "blog"
+    };
+  }
+}
+</script>
+</body>
+</html>

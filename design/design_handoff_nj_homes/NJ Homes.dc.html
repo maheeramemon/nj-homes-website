@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NJ Homes — New construction in Fort Worth &amp; DFW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&amp;family=Archivo:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #EFE9DF; color: #14130F; font-family: Archivo, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  img { display: block; }
+  a { color: #14130F; text-decoration: none; }
+  a:hover { color: #A87E56; }
+  input, select, textarea, button { font: inherit; color: inherit; }
+  @media (max-width: 860px) {
+    [data-wide-only] { display: none !important; }
+  }
+  @media (min-width: 861px) {
+    [data-narrow-only] { display: none !important; }
+  }
+  [data-day], [data-night] { transform-origin: 50% 35%; will-change: opacity, transform, filter; }
+  [data-day] { transform: translate(-2.1%, 0.9%) scale(1.05); transition: filter 2s ease, transform 6s ease; }
+  [data-night] { opacity: 0; transform: translate(2.1%, -0.9%) scale(1.16); transition: opacity 1.8s cubic-bezier(0.33,0,0.2,1), transform 6s ease; }
+  [data-hero]:hover [data-day], [data-hero]:active [data-day] { filter: brightness(0.55) saturate(0.75); transform: translate(-2.1%, 0.9%) scale(1.08); }
+  [data-hero]:hover [data-night], [data-hero]:active [data-night] { opacity: 1; transform: translate(2.1%, -0.9%) scale(1.097); }
+  @media (prefers-reduced-motion: reduce) { [data-day], [data-night] { transition-duration: 0.4s; } }
+  @keyframes njfade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+
+<header ref="{{ navRef }}" style="position:sticky;top:0;z-index:50;background:rgba(239,233,223,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(20,19,15,0.10);transition:transform 0.42s cubic-bezier(0.4,0,0.2,1),box-shadow 0.42s ease;will-change:transform">
+  <div style="max-width:1240px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;gap:20px">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
+      <img src="img/logo-black.png" alt="NJ Homes" style="height:56px;width:auto">
+      <span style="font-family:Archivo;font-size:13.5px;letter-spacing:0.22em;font-weight:600;text-transform:uppercase;line-height:1.35">NJ Homes<span style="display:block;font-weight:400;font-size:11px;letter-spacing:0.14em;color:#6B6357">Dallas–Fort Worth, Texas</span></span>
+    </a>
+    <nav data-wide-only="" style="display:flex;gap:32px;font-size:14.5px;letter-spacing:0.02em">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#building">Building Now</a>
+      <a href="#about">About Us</a>
+      <a href="NJ Homes Blog.dc.html">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button data-narrow-only="" onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none;border:1px solid rgba(20,19,15,0.25);padding:10px 14px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">{{ menuLabel }}</button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid rgba(20,19,15,0.10);padding:8px 20px 22px;display:flex;flex-direction:column">
+      <a href="#portfolio" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Portfolio</a>
+      <a href="#building" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Building Now</a>
+      <a href="#about" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">About Us</a>
+      <a href="NJ Homes Blog.dc.html" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Blog</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Contact</a>
+      <a href="tel:+18324951190" style="margin-top:18px;background:#14130F;color:#EFE9DF;text-align:center;padding:16px;font-size:13px;letter-spacing:0.12em;text-transform:uppercase">Call (832) 495-1190</a>
+    </div>
+  </sc-if>
+</header>
+
+<main id="top">
+
+  <section data-hero="" style="position:relative;background:#14130F;min-height:clamp(520px,max(88vh,62vw),900px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
+    <img data-day="" src="img/hero-day.jpeg" alt="Completed NJ Homes residence at 2705 S Jones Street, Fort Worth" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%;opacity:0.86">
+    <img data-night="" src="img/hero-night.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,15,0.45) 0%,rgba(20,19,15,0.12) 30%,rgba(20,19,15,0.55) 62%,rgba(20,19,15,0.82) 100%);pointer-events:none"></div>
+    <div style="position:relative;padding:120px 20px 48px">
+      <div style="max-width:1240px;margin:0 auto">
+        <h1 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(38px,7.2vw,74px);line-height:1.04;letter-spacing:-0.015em;color:#F7F3EC;margin:0;max-width:15ch;text-wrap:balance">New homes for Dallas–Fort Worth, built the way we'd build our own.</h1>
+        <p style="color:rgba(247,243,236,0.82);font-size:clamp(15px,2.2vw,18px);line-height:1.6;max-width:52ch;margin:22px 0 30px">Ground-up residential construction across the DFW metroplex. Nineteen homes in the ground or on the boards right now, each one finished by the same family that started it.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="#portfolio" style="background:#F7F3EC;color:#14130F;padding:16px 30px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500" style-hover="background:#A87E56;color:#F7F3EC">See the homes</a>
+          <a href="#contact" style="border:1px solid rgba(247,243,236,0.55);color:#F7F3EC;padding:16px 30px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500" style-hover="background:rgba(247,243,236,0.12)">Start a conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#3B2A1E;color:#F7F3EC">
+    <div style="max-width:1240px;margin:0 auto;padding:0 20px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-left:1px solid rgba(247,243,236,0.14)">
+        <div style="padding:30px 24px;border-right:1px solid rgba(247,243,236,0.14)">
+          <div style="font-family:Newsreader,Georgia,serif;font-size:44px;font-weight:300;line-height:1">9</div>
+          <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.6);margin-top:8px">New construction</div>
+        </div>
+        <div style="padding:30px 24px;border-right:1px solid rgba(247,243,236,0.14)">
+          <div style="font-family:Newsreader,Georgia,serif;font-size:44px;font-weight:300;line-height:1">5</div>
+          <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.6);margin-top:8px">Under construction</div>
+        </div>
+        <div style="padding:30px 24px;border-right:1px solid rgba(247,243,236,0.14)">
+          <div style="font-family:Newsreader,Georgia,serif;font-size:44px;font-weight:300;line-height:1">5</div>
+          <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.6);margin-top:8px">In permitting</div>
+        </div>
+        <div style="padding:30px 24px;border-right:1px solid rgba(247,243,236,0.14)">
+          <div style="font-family:Newsreader,Georgia,serif;font-size:26px;font-weight:300;line-height:1.15;padding-top:8px">DFW Metroplex</div>
+          <div style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.6);margin-top:10px">Service area</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section id="portfolio" style="padding:clamp(64px,9vw,120px) 20px;scroll-margin-top:80px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px;justify-content:space-between;margin-bottom:clamp(32px,5vw,56px)">
+        <div style="max-width:34ch">
+          <p style="font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#8A6033;margin:0 0 14px">Completed homes · 2026</p>
+          <h2 style="font-family: Newsreader,Georgia,serif; font-weight: 300; font-size: clamp(30px,5vw,50px); line-height: 1.1; letter-spacing: -0.01em; margin: 0">Finished, sold, and standing in Fort Worth.</h2>
+        </div>
+        
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:clamp(40px,6vw,72px)">
+        <sc-for list="{{ homes }}" as="home" hint-placeholder-count="3">
+          <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,44px);align-items:start">
+            <div>
+              <div onMouseEnter="{{ home.onEnter }}" onMouseLeave="{{ home.onLeave }}" onTouchStart="{{ home.onEnter }}" onTouchEnd="{{ home.onLeave }}" style="position:relative;background:#E4DACB">
+                <img src="{{ home.hero }}" alt="{{ home.address }}" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block">
+                <span style="position:absolute;right:12px;bottom:12px;background:rgba(20,19,15,0.68);color:#F7F3EC;font-size:11px;letter-spacing:0.14em;padding:6px 10px">{{ home.counter }}</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px">
+                <sc-for list="{{ home.shots }}" as="shot" hint-placeholder-count="4">
+                  <img src="{{ shot.src }}" alt="" onClick="{{ shot.pick }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;background:#E4DACB;opacity:{{ shot.op }}">
+                </sc-for>
+              </div>
+            </div>
+            <div style="padding-top:6px">
+              <p style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8A6033;margin:0 0 12px">{{ home.status }}</p>
+              <h3 style="font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,36px);line-height:1.15;margin:0">{{ home.street }}</h3>
+              <p style="color:#6B6357;font-size:15px;margin:8px 0 0">{{ home.city }}</p>
+              <p style="color:#4A443B;font-size:15.5px;line-height:1.7;margin:20px 0 0;max-width:44ch">{{ home.note }}</p>
+              <a href="{{ home.zillow }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;margin-top:26px;border:1px solid rgba(20,19,15,0.16);background:#F7F3EC;padding:14px 16px;max-width:400px" style-hover="border-color:#14130F">
+                <img src="{{ home.hero }}" alt="" style="width:56px;height:56px;object-fit:cover;flex:none;background:#E4DACB">
+                <span style="flex:1;min-width:0">
+                  <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6B6357">View listing on Zillow</span>
+                  <span style="display:block;font-size:14.5px;font-weight:500;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ home.street }}, Fort Worth</span>
+                </span>
+                <span style="font-size:18px;color:#A87E56;flex:none">↗</span>
+              </a>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:clamp(56px,7vw,96px);padding-top:clamp(36px,5vw,56px);border-top:1px solid rgba(20,19,15,0.14)">
+        <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:baseline;margin-bottom:28px">
+          <h3 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(24px,3.6vw,36px);margin:0">More homes we've delivered</h3>
+          <p style="color:#6B6357;font-size:14.5px;margin:0">Across Fort Worth</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(14px,2vw,24px)">
+          <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
+            <figure style="margin:0">
+              <img src="{{ g.src }}" alt="{{ g.street }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:#E4DACB">
+              <figcaption style="padding-top:12px">
+                <span style="display:block;font-size:16px;font-weight:500">{{ g.street }}</span>
+                <span style="display:block;font-size:13.5px;color:#6B6357;margin-top:3px">{{ g.city }}</span>
+              </figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section><section id="building" style="background:#E4DACB;padding:clamp(64px,9vw,120px) 20px;scroll-margin-top:80px">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#7A5427;margin:0 0 14px">Rising now · The 2026 slate</p>
+      <h2 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(30px,5vw,50px);line-height:1.1;letter-spacing:-0.01em;margin:0;max-width:22ch">Five houses going up this year.</h2>
+
+      <div style="margin-top:clamp(36px,5vw,60px);background:#F7F3EC">
+        <img src="img/waterview.png" alt="Front elevation, 6000 Waterview Drive" style="width:100%;aspect-ratio:2/1;object-fit:cover">
+        <div style="padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;align-items:start">
+          <div>
+            <p style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8A6033;margin:0 0 10px">Front elevation</p>
+            <h3 style="font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(24px,3.2vw,34px);line-height:1.15;margin:0">6000 Waterview Drive</h3>
+            <p style="color:#6B6357;font-size:15px;margin:8px 0 0">Arlington, TX 76106</p>
+          </div>
+          <p style="color:#4A443B;font-size:15.5px;line-height:1.7;margin:0;max-width:46ch">Warm traditional Texas: natural limestone veneer, warm cream brick, cedar-stained siding on the upper balcony, and dark bronze windows throughout.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:clamp(28px,4vw,44px)">
+        <p style="font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#7A5427;margin:0 0 16px">Rayner Avenue · Fort Worth, TX 76111</p>
+        <img src="img/rayner-concept.png" alt="Concept elevation for 429, 433, 437 and 441 Rayner Ave" style="width:100%;aspect-ratio:16/10;object-fit:cover;background:#F7F3EC;margin-bottom:2px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:2px;background:rgba(20,19,15,0.12)">
+          <div style="background:#F7F3EC;padding:26px 22px"><div style="font-family:Newsreader,Georgia,serif;font-size:30px;font-weight:300;line-height:1">429</div><div style="font-size:12px;letter-spacing:0.1em;color:#6B6357;margin-top:8px">Rayner Ave</div></div>
+          <div style="background:#F7F3EC;padding:26px 22px"><div style="font-family:Newsreader,Georgia,serif;font-size:30px;font-weight:300;line-height:1">433</div><div style="font-size:12px;letter-spacing:0.1em;color:#6B6357;margin-top:8px">Rayner Ave</div></div>
+          <div style="background:#F7F3EC;padding:26px 22px"><div style="font-family:Newsreader,Georgia,serif;font-size:30px;font-weight:300;line-height:1">437</div><div style="font-size:12px;letter-spacing:0.1em;color:#6B6357;margin-top:8px">Rayner Ave</div></div>
+          <div style="background:#F7F3EC;padding:26px 22px"><div style="font-family:Newsreader,Georgia,serif;font-size:30px;font-weight:300;line-height:1">441</div><div style="font-size:12px;letter-spacing:0.1em;color:#6B6357;margin-top:8px">Rayner Ave</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#E4DACB;padding:0 20px clamp(64px,9vw,120px)">
+    <div style="max-width:1240px;margin:0 auto;padding-top:clamp(44px,6vw,72px);border-top:1px solid rgba(20,19,15,0.16)">
+      <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(24px,4vw,40px)">
+        <div>
+          <p style="font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#7A5427;margin:0 0 14px">On the boards · 2027</p>
+          <h2 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(28px,4.4vw,44px);line-height:1.12;margin:0;max-width:20ch">The next five, already in hand.</h2>
+        </div>
+        <p style="color:#5C5347;font-size:15px;line-height:1.65;max-width:34ch;margin:0">Land secured in Sherman, Dallas and Fort Worth. Plans and permitting are underway.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:2px;background:rgba(20,19,15,0.14)">
+        <sc-for list="{{ pipeline }}" as="p" hint-placeholder-count="4">
+          <div style="background:#EFE9DF;padding:28px 24px">
+            <div style="font-size:17px;font-weight:500;line-height:1.3">{{ p.street }}</div>
+            <div style="font-size:13.5px;color:#6B6357;margin-top:8px">{{ p.city }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="padding:clamp(64px,9vw,120px) 20px;scroll-margin-top:80px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div>
+        <p style="font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#8A6033;margin:0 0 16px">Our Story</p>
+        <h2 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(30px,5vw,50px);line-height:1.1;letter-spacing:-0.01em;margin:0;max-width:20ch">We started with old houses. We stayed for the neighborhoods.</h2>
+        <p style="color:#4A443B;font-size:16.5px;line-height:1.75;margin:26px 0 0;max-width:48ch">In 2017 we began remodeling homes around Fort Worth, taking on houses other people had given up on. The more we worked, the more we wanted to build from the ground up, and by the end of that first stretch we were pouring our own slabs.</p>
+        <p style="color:#4A443B;font-size:16.5px;line-height:1.75;margin:18px 0 0;max-width:48ch">We are still a family business, and every house gets the same attention we would want in our own. A little of our family goes into each one, and it stays there long after we hand over the keys.</p>
+        <p style="font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:300;font-size:20px;color:#14130F;margin:30px 0 0;max-width:34ch">Built with family values, finished by the family that built it.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <img src="img/jones2705-e.jpeg" alt="Open living and kitchen" style="width:100%;aspect-ratio:4/5;object-fit:cover;grid-row:span 2;background:#E4DACB">
+        <img src="img/allen1442-a.jpeg" alt="Fort Worth from above" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:#E4DACB">
+        <img src="img/jones2705-a.jpeg" alt="Primary bedroom" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:#E4DACB">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#14130F;color:#F7F3EC;padding:clamp(64px,9vw,120px) 20px;scroll-margin-top:80px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(36px,5vw,80px);align-items:start">
+      <div>
+        <p style="font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#C29862;margin:0 0 16px">Interest form</p>
+        <h2 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(30px,5vw,50px);line-height:1.1;letter-spacing:-0.01em;margin:0;max-width:18ch">Tell us what you're looking for.</h2>
+        <p style="color:rgba(247,243,236,0.7);font-size:16px;line-height:1.7;margin:22px 0 0;max-width:42ch">Buying a finished home, building on your own lot, or looking for land in the metroplex — send us the details and we'll get back to you personally.</p>
+        <div style="margin-top:36px;display:flex;flex-direction:column;gap:2px;border-top:1px solid rgba(247,243,236,0.16)">
+          <a href="tel:+18324951190" style="color:#F7F3EC;padding:20px 0;border-bottom:1px solid rgba(247,243,236,0.16);display:flex;justify-content:space-between;gap:16px;align-items:baseline" style-hover="color:#A87E56">
+            <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55)">Call Abdul Memon</span>
+            <span style="font-size:17px">(832) 495-1190</span>
+          </a>
+          <a href="mailto:njhomeconcepts@gmail.com" style="color:#F7F3EC;padding:20px 0;border-bottom:1px solid rgba(247,243,236,0.16);display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap" style-hover="color:#A87E56">
+            <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55)">Email</span>
+            <span style="font-size:17px">njhomeconcepts@gmail.com</span>
+          </a>
+          <a href="https://www.instagram.com/njhomeconcepts" target="_blank" rel="noopener" style="color:#F7F3EC;padding:20px 0;border-bottom:1px solid rgba(247,243,236,0.16);display:flex;justify-content:space-between;gap:16px;align-items:baseline" style-hover="color:#A87E56">
+            <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55)">Instagram</span>
+            <span style="font-size:17px">@njhomeconcepts</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1px solid rgba(247,243,236,0.2);padding:clamp(28px,4vw,44px);animation:njfade 0.45s ease both">
+            <h3 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:30px;margin:0;line-height:1.2">Thank you — we have it.</h3>
+            <p style="color:rgba(247,243,236,0.72);font-size:15.5px;line-height:1.7;margin:16px 0 0">Someone from the family will reach out within a day or two. If it's urgent, call Abdul directly at (832) 495-1190.</p>
+            <button onClick="{{ resetForm }}" style="margin-top:26px;background:none;border:1px solid rgba(247,243,236,0.4);color:#F7F3EC;padding:13px 24px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer" style-hover="background:rgba(247,243,236,0.12)">Send another</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px">
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Name</span>
+              <input name="name" required="" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+            </label>
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Email</span>
+              <input name="email" type="email" required="" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+            </label>
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Phone</span>
+              <input name="phone" type="tel" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+            </label>
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">I'm interested in</span>
+              <select name="interest" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+                <option style="color:#14130F">Buying a finished home</option>
+                <option style="color:#14130F">Building on my lot</option>
+                <option style="color:#14130F">Land</option>
+                <option style="color:#14130F">Not sure yet</option>
+              </select>
+            </label>
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Target area</span>
+              <input name="area" placeholder="Fort Worth, Arlington…" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+            </label>
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Budget range</span>
+              <select name="budget" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+                <option style="color:#14130F">Under $300k</option>
+                <option style="color:#14130F">$300k – $450k</option>
+                <option style="color:#14130F">$450k – $600k</option>
+                <option style="color:#14130F">$600k+</option>
+              </select>
+            </label>
+            <label style="display:block">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Timeline</span>
+              <select name="timeline" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC" style-focus="border-bottom-color:#A87E56">
+                <option style="color:#14130F">Ready now</option>
+                <option style="color:#14130F">3 – 6 months</option>
+                <option style="color:#14130F">6 – 12 months</option>
+                <option style="color:#14130F">Just exploring</option>
+              </select>
+            </label>
+            <label style="display:block;grid-column:1/-1">
+              <span style="display:block;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,243,236,0.55);margin-bottom:8px">Message</span>
+              <textarea name="message" rows="3" style="width:100%;background:transparent;border:0;border-bottom:1px solid rgba(247,243,236,0.28);padding:10px 0;font-size:16px;outline:none;color:#F7F3EC;resize:vertical;font-family:Archivo" style-focus="border-bottom-color:#A87E56"></textarea>
+            </label>
+            <button type="submit" style="grid-column:1/-1;margin-top:8px;background:#F7F3EC;color:#14130F;border:0;padding:18px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;cursor:pointer" style-hover="background:#A87E56;color:#F7F3EC">Send my details</button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#0D0C0A;color:rgba(247,243,236,0.6);padding:44px 20px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="img/logo-gold.png" alt="NJ Homes" style="height:44px;width:auto">
+        <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,243,236,0.75)">NJ Homes<span style="display:block;letter-spacing:0.12em;color:rgba(247,243,236,0.45);margin-top:4px">Serving the DFW metroplex</span></span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:20px 32px;font-size:13.5px">
+        <a href="mailto:njhomeconcepts@gmail.com" style="color:rgba(247,243,236,0.7)" style-hover="color:#A87E56">njhomeconcepts@gmail.com</a>
+        <a href="tel:+18324951190" style="color:rgba(247,243,236,0.7)" style-hover="color:#A87E56">(832) 495-1190</a>
+        <a href="https://www.instagram.com/njhomeconcepts" target="_blank" rel="noopener" style="color:rgba(247,243,236,0.7)" style-hover="color:#A87E56">@njhomeconcepts</a>
+        <span>© 2026 NJ Homes</span>
+      </div>
+    </div>
+  </footer>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const HOMES = [
+  {
+    key: "j2705",
+    street: "2705 S Jones St",
+    city: "Fort Worth, TX 76104",
+    status: "Completed · Sold",
+    note: "A single-story with a wide covered porch, board-and-batten front, and cedar posts at the entry. Vaulted ceilings run from the kitchen through to the living room.",
+    zillow: "https://www.zillow.com/homedetails/2705-S-Jones-St-Fort-Worth-TX-76104/347918238_zpid/",
+    shots: ["img/j2705-1.jpeg", "img/j2705-2.jpeg", "img/j2705-3.jpeg", "img/j2705-4.jpeg", "img/j2705-5.jpeg", "img/j2705-6.jpeg", "img/j2705-7.jpeg", "img/j2705-8.jpeg"]
+  },
+  {
+    key: "j2701",
+    street: "2701 S Jones St",
+    city: "Fort Worth, TX 76104",
+    status: "Completed · Sold",
+    note: "Two stories with an open stair and a kitchen built around a quartz island. Green glazed tile behind the range, white oak treads, black hardware throughout.",
+    zillow: "https://www.zillow.com/homedetails/2701-S-Jones-St-Fort-Worth-TX-76104/97715929_zpid/",
+    shots: ["img/j2701-1.jpeg", "img/j2701-2.jpeg", "img/j2701-3.jpeg", "img/j2701-4.jpeg", "img/j2701-5.jpeg", "img/j2701-6.jpeg", "img/j2701-7.jpeg", "img/j2701-8.jpeg"]
+  },
+  {
+    key: "a1442",
+    street: "1442 E Allen Ave",
+    city: "Fort Worth, TX 76104",
+    status: "Completed · Sold",
+    note: "Built minutes from downtown, with a shiplap fireplace wall, floating oak shelves, and a corner dining room wrapped in windows on three sides.",
+    zillow: "https://www.zillow.com/homedetails/1442-E-Allen-Ave-Fort-Worth-TX-76104/97714159_zpid/",
+    shots: ["img/a1442-1.jpeg", "img/a1442-2.jpeg", "img/a1442-3.jpeg", "img/a1442-4.jpeg", "img/a1442-5.jpeg", "img/a1442-6.jpeg", "img/a1442-7.jpeg", "img/a1442-8.jpeg"]
+  }
+];
+
+const GALLERY = [
+  { src: "img/jefferson1344.jpeg", street: "1344 E Jefferson Ave", city: "Fort Worth, TX" },
+  { src: "img/jewell2416.jpeg", street: "2416 Jewell Drive", city: "Fort Worth, TX" },
+  { src: "img/donald309.jpeg", street: "309 Donald Street", city: "Fort Worth, TX" },
+  { src: "img/donald313.jpeg", street: "313 Donald Street", city: "Fort Worth, TX" },
+  { src: "img/walker3008.jpeg", street: "3008 Walker Street", city: "Fort Worth, TX" },
+  { src: "img/walker3012.jpeg", street: "3012 Walker Street", city: "Fort Worth, TX" }
+];
+
+const PIPELINE = [
+  { street: "1904 Heritage Knoll Drive", city: "Sherman, TX 75092" },
+  { street: "2006 Heritage Knoll Drive", city: "Sherman, TX 75092" },
+  { street: "3749 Durango Drive", city: "Dallas, TX 75220" },
+  { street: "7807 Robin Road", city: "Dallas, TX 75209" },
+  { street: "1028 E Cannon", city: "Fort Worth, TX 76104" }
+];
+
+class Component extends DCLogic {
+  state = { menuOpen: false, sent: false, active: {} };
+
+  componentDidMount() {
+    this._navRef = this._navRef || null;
+    let last = window.scrollY;
+    this._onScroll = () => {
+      const el = this._nav;
+      if (!el) return;
+      const y = window.scrollY;
+      const down = y > last && y > 140;
+      if (!this.state.menuOpen) el.style.transform = down ? "translateY(-101%)" : "translateY(0)";
+      el.style.boxShadow = y > 40 && !down ? "0 10px 30px -22px rgba(20,19,15,0.55)" : "none";
+      last = y;
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+  }
+
+  componentWillUnmount() { clearInterval(this._timer); window.removeEventListener("scroll", this._onScroll); }
+
+  startCycle(key, len) {
+    clearInterval(this._timer);
+    this._timer = setInterval(() => {
+      this.setState(s => ({ active: { ...s.active, [key]: ((s.active[key] || 0) + 1) % len } }));
+    }, 1100);
+  }
+
+  stopCycle() { clearInterval(this._timer); }
+
+  renderVals() {
+    const active = this.state.active;
+    return {
+      navRef: (el) => { this._nav = el; },
+      gallery: GALLERY,
+      pipeline: PIPELINE,
+      menuOpen: this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? "Close" : "Menu",
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      resetForm: () => this.setState({ sent: false }),
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      homes: HOMES.map(h => {
+        const i = active[h.key] || 0;
+        return {
+          ...h,
+          address: h.street + ", " + h.city,
+          hero: h.shots[i],
+          onEnter: () => this.startCycle(h.key, h.shots.length),
+          onLeave: () => this.stopCycle(),
+          counter: (i + 1) + " / " + h.shots.length,
+          shots: h.shots.map((src, j) => ({
+            src,
+            op: j === i ? "1" : "0.55",
+            pick: () => this.setState(s => ({ active: { ...s.active, [h.key]: j } }))
+          }))
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

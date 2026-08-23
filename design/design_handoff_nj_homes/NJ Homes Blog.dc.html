@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — NJ Homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&amp;family=Archivo:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #EFE9DF; color: #14130F; font-family: Archivo, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  img { display: block; }
+  a { color: #14130F; text-decoration: none; }
+  a:hover { color: #A87E56; }
+  @media (max-width: 860px) { [data-wide-only] { display: none !important; } }
+  @media (min-width: 861px) { [data-narrow-only] { display: none !important; } }
+</style>
+</helmet>
+
+<header ref="{{ navRef }}" style="position:sticky;top:0;z-index:50;background:rgba(239,233,223,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(20,19,15,0.10);transition:transform 0.42s cubic-bezier(0.4,0,0.2,1),box-shadow 0.42s ease;will-change:transform">
+  <div style="max-width:1240px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;gap:20px">
+    <a href="NJ Homes.dc.html" style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
+      <img src="img/logo-black.png" alt="NJ Homes" style="height:56px;width:auto">
+      <span style="font-family:Archivo;font-size:13.5px;letter-spacing:0.22em;font-weight:600;text-transform:uppercase;line-height:1.35">NJ Homes<span style="display:block;font-weight:400;font-size:11px;letter-spacing:0.14em;color:#6B6357">Dallas–Fort Worth, Texas</span></span>
+    </a>
+    <nav data-wide-only="" style="display:flex;gap:32px;font-size:14.5px;letter-spacing:0.02em">
+      <a href="NJ Homes.dc.html#portfolio">Portfolio</a>
+      <a href="NJ Homes.dc.html#building">Building Now</a>
+      <a href="NJ Homes.dc.html#about">About Us</a>
+      <a href="#top" style="color:#A87E56">Blog</a>
+      <a href="NJ Homes.dc.html#contact">Contact</a>
+    </nav>
+    <button data-narrow-only="" onClick="{{ toggleMenu }}" aria-label="Menu" style="background:none;border:1px solid rgba(20,19,15,0.25);padding:10px 14px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">{{ menuLabel }}</button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid rgba(20,19,15,0.10);padding:8px 20px 22px;display:flex;flex-direction:column">
+      <a href="NJ Homes.dc.html#portfolio" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Portfolio</a>
+      <a href="NJ Homes.dc.html#building" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Building Now</a>
+      <a href="NJ Homes.dc.html#about" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">About Us</a>
+      <a href="#top" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px;color:#A87E56">Blog</a>
+      <a href="NJ Homes.dc.html#contact" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid rgba(20,19,15,0.08);font-size:16px">Contact</a>
+      <a href="tel:+18324951190" style="margin-top:18px;background:#14130F;color:#EFE9DF;text-align:center;padding:16px;font-size:13px;letter-spacing:0.12em;text-transform:uppercase">Call (832) 495-1190</a>
+    </div>
+  </sc-if>
+</header>
+
+<main id="top">
+  <sc-if value="{{ article }}" hint-placeholder-val="{{ false }}">
+    <article style="padding:clamp(40px,6vw,80px) 20px clamp(56px,8vw,104px)">
+      <div style="max-width:760px;margin:0 auto">
+        <button onClick="{{ closeArticle }}" style="background:none;border:none;padding:0;cursor:pointer;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:#7A5427" style-hover="color:#A87E56">← All posts</button>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A6033;font-weight:600;margin-top:clamp(28px,4vw,44px)">
+          <span>{{ article.tag }}</span>
+          <span style="color:#8A8072;font-weight:400;letter-spacing:0.1em">{{ article.date }}</span>
+        </div>
+        <h1 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(32px,5.4vw,58px);line-height:1.08;letter-spacing:-0.015em;margin:16px 0 0;text-wrap:pretty">{{ article.title }}</h1>
+        <img ref="{{ articleImgRef }}" alt="" style="width:100%;aspect-ratio:16/10;object-fit:cover;background:#E4DACB;margin:clamp(28px,4vw,44px) 0 0">
+        <sc-for list="{{ article.body }}" as="para" hint-placeholder-count="3">
+          <p style="color:#2E2A24;font-size:clamp(17px,1.7vw,19px);line-height:1.8;margin:clamp(22px,3vw,32px) 0 0;text-wrap:pretty">{{ para }}</p>
+        </sc-for>
+        <div style="margin-top:clamp(40px,5vw,64px);padding-top:clamp(28px,4vw,40px);border-top:1px solid rgba(20,19,15,0.16);display:flex;flex-wrap:wrap;gap:14px">
+          <button onClick="{{ closeArticle }}" style="background:#14130F;color:#EFE9DF;border:none;cursor:pointer;padding:18px 30px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600" style-hover="background:#A87E56">All posts</button>
+          <a href="NJ Homes.dc.html#contact" style="border:1px solid rgba(20,19,15,0.3);padding:18px 30px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600" style-hover="border-color:#A87E56">Get in touch</a>
+        </div>
+      </div>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ onIndex }}" hint-placeholder-val="{{ true }}">
+  <section style="padding:clamp(56px,8vw,110px) 20px clamp(28px,4vw,44px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <p style="font-size:14px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#7A5427;margin:0 0 16px">Blog</p>
+      <h1 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(34px,6.4vw,72px);line-height:1.04;letter-spacing:-0.015em;margin:0;max-width:16ch">Read Our Blog</h1>
+      <p style="color:#4A443B;font-size:clamp(16px,1.5vw,18px);line-height:1.7;margin:26px 0 0;max-width:52ch">Progress on the houses we have going, what we're learning, and what it's like to build with us.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 20px clamp(64px,9vw,120px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <sc-for list="{{ posts }}" as="p" hint-placeholder-count="4">
+        <article style="border-top:1px solid rgba(20,19,15,0.16);padding:clamp(26px,3.4vw,44px) 0">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(22px,3vw,48px);align-items:start">
+            <a href="#top" onClick="{{ p.open }}" style="display:block;cursor:pointer;order:{{ p.order }}">
+              <img src="{{ p.img }}" alt="{{ p.title }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;background:#E4DACB">
+            </a>
+            <div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A6033;font-weight:600">
+                <span>{{ p.tag }}</span>
+                <span style="color:#8A8072;font-weight:400;letter-spacing:0.1em">{{ p.date }}</span>
+              </div>
+              <h2 style="font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(24px,3.4vw,38px);line-height:1.14;letter-spacing:-0.01em;margin:14px 0 0;max-width:22ch;text-wrap:pretty">
+                <a href="#top" onClick="{{ p.open }}" style="cursor:pointer">{{ p.title }}</a>
+              </h2>
+              <p style="color:#4A443B;font-size:16px;line-height:1.75;margin:16px 0 0;max-width:56ch;text-wrap:pretty">{{ p.excerpt }}</p>
+              <a href="#top" onClick="{{ p.open }}" style="display:inline-block;cursor:pointer;margin-top:22px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border-bottom:1px solid rgba(20,19,15,0.3);padding-bottom:5px" style-hover="border-color:#A87E56">Read the post</a>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="background:#14130F;color:#F7F3EC;padding:clamp(56px,8vw,104px) 20px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,60px);align-items:center">
+      <div>
+        <h2 style="font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(28px,4.4vw,46px);line-height:1.12;margin:0;max-width:18ch">Thinking about building with us?</h2>
+        <p style="color:rgba(247,243,236,0.7);font-size:16px;line-height:1.7;margin:20px 0 0;max-width:44ch">Tell us what you're looking for and we'll get back to you personally.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="NJ Homes.dc.html#contact" style="background:#EFE9DF;color:#14130F;padding:18px 30px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600" style-hover="background:#C29862">Start the conversation</a>
+        <a href="https://www.instagram.com/njhomeconcepts" target="_blank" rel="noopener" style="border:1px solid rgba(247,243,236,0.35);color:#F7F3EC;padding:18px 30px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600" style-hover="border-color:#C29862;color:#C29862">@njhomeconcepts</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#0D0C0A;color:rgba(247,243,236,0.6);padding:44px 20px">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="img/logo-cream.png" alt="NJ Homes" style="height:34px;width:auto">
+        <span style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase">NJ Homes · Fort Worth, TX</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:20px 32px;font-size:13.5px">
+        <a href="mailto:njhomeconcepts@gmail.com" style="color:rgba(247,243,236,0.7)" style-hover="color:#A87E56">njhomeconcepts@gmail.com</a>
+        <a href="tel:+18324951190" style="color:rgba(247,243,236,0.7)" style-hover="color:#A87E56">(832) 495-1190</a>
+        <a href="https://www.instagram.com/njhomeconcepts" target="_blank" rel="noopener" style="color:rgba(247,243,236,0.7)" style-hover="color:#A87E56">@njhomeconcepts</a>
+        <span>© 2026 NJ Homes</span>
+      </div>
+    </div>
+  </footer>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const POSTS = [
+  {
+    tag: "Rayner Avenue",
+    date: "August 2026",
+    title: "Four houses, one block, on Rayner Avenue",
+    excerpt: "429, 433, 437 and 441 Rayner are going up together in Fort Worth's 76111. Building four at once on the same street lets us hold one crew, one material order and one standard across all of them.",
+    img: "img/rayner-concept.png",
+    body: [
+      "429, 433, 437 and 441 Rayner are going up together in Fort Worth's 76111. Four attached three-story homes, stucco and brick, black steel windows.",
+      "Building four at once on the same street changes the math. One crew stays put instead of moving between sites, one material order covers all four elevations, and the same superintendent walks every house every morning. Nothing gets a different standard because nothing is far enough away to drift.",
+      "It also means the block finishes as a block. Streetscape, grading and landscaping get planned once, together, instead of four separate houses trying to agree with each other after the fact."
+    ]
+  },
+  {
+    tag: "Waterview Drive",
+    date: "July 2026",
+    title: "Picking the exterior for 6000 Waterview",
+    excerpt: "Natural limestone veneer, warm cream brick, cedar-stained siding on the upper balcony and dark bronze windows. How we landed on a warm traditional Texas elevation for the Arlington house.",
+    img: "img/waterview.png",
+    body: [
+      "Natural limestone veneer, warm cream brick, cedar-stained siding on the upper balcony, and dark bronze windows throughout.",
+      "The elevation went through a few rounds. The question on a house this size is always where to stop: too many materials and the front reads busy from the street, too few and it flattens out. Limestone carries the entry, brick carries the mass, and the cedar shows up in exactly one place — the balcony — so it lands as an accent instead of a fifth idea.",
+      "Bronze windows tie it together. They read almost black at a distance and warm up close, which is the same thing the house is trying to do."
+    ]
+  },
+  {
+    tag: "How we build",
+    date: "June 2026",
+    title: "What the first sixty days look like",
+    excerpt: "From lot walk to permit to slab. The early stretch is mostly paperwork and decisions, and it sets everything that follows, so we walk every buyer through it before the first truck shows up.",
+    img: "img/jones2705-e.jpeg",
+    body: [
+      "From lot walk to permit to slab, the first stretch of a build is mostly paperwork and decisions.",
+      "It doesn't look like progress. There's no framing to photograph and no crew on site. But this is where the house is actually decided — the plan set, the allowances, the finish direction, the survey and the permit. Every change made here is a conversation. Every change made after the slab is money.",
+      "So we walk every buyer through it before the first truck shows up. You should know what's fixed, what's still open, and roughly when each decision comes due."
+    ]
+  },
+  {
+    tag: "Our story",
+    date: "May 2026",
+    title: "From remodels to new construction",
+    excerpt: "We started in 2017 taking on remodels around Fort Worth. Nine finished homes later we're building from the dirt up, and the way we treat a house hasn't changed.",
+    img: "img/allen1442-main.jpeg",
+    body: [
+      "We started in 2017 taking on remodels around Fort Worth.",
+      "Remodeling teaches you what fails. You open up a wall and see what the last builder did in a hurry, and you carry that into every house you put up afterward. By the time we moved to new construction we already knew which shortcuts come back.",
+      "Nine finished homes later we're building from the dirt up, and the way we treat a house hasn't changed. It's a family company. Every home gets a piece of our family's values built into it, because we're the ones standing in it at the end."
+    ]
+  }
+];
+
+class Component extends DCLogic {
+  state = { menuOpen: false, open: null };
+
+  componentDidMount() {
+    let last = window.scrollY;
+    this._onScroll = () => {
+      const el = this._nav;
+      if (!el) return;
+      const y = window.scrollY;
+      const down = y > last && y > 140;
+      if (!this.state.menuOpen) el.style.transform = down ? "translateY(-101%)" : "translateY(0)";
+      el.style.boxShadow = y > 40 && !down ? "0 10px 30px -22px rgba(20,19,15,0.55)" : "none";
+      last = y;
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+  }
+
+  componentWillUnmount() { window.removeEventListener("scroll", this._onScroll); }
+
+  renderVals() {
+    return {
+      navRef: (el) => { this._nav = el; },
+      menuOpen: this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? "Close" : "Menu",
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      article: this.state.open === null ? null : POSTS[this.state.open],
+      articleImgRef: (el) => {
+        if (!el) return;
+        const p = this.state.open === null ? null : POSTS[this.state.open];
+        if (p) { el.src = p.img; el.alt = p.title; }
+      },
+      onIndex: this.state.open === null,
+      closeArticle: () => { this.setState({ open: null }); window.scrollTo(0, 0); },
+      posts: POSTS.map((p, i) => ({
+        ...p,
+        order: i % 2 === 1 ? 2 : 0,
+        open: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ open: i }); window.scrollTo(0, 0); }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — NJ Homes</title>
+<meta name="description" content="Progress on the houses NJ Homes has going across Dallas–Fort Worth, what we're learning, and what it's like to build with us.">
+<meta property="og:title" content="Blog — NJ Homes">
+<meta property="og:description" content="Progress on the houses we have going, what we're learning, and what it's like to build with us.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://njhomeconcept.com/blog.html">
+<link rel="canonical" href="https://njhomeconcept.com/blog.html">
+<link rel="icon" type="image/png" href="img/logo-black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="header-row">
+    <a href="index.html" class="brand">
+      <img src="img/logo-black.png" alt="NJ Homes">
+      <span class="brand-text">NJ Homes<small>Dallas–Fort Worth, Texas</small></span>
+    </a>
+    <nav class="nav-wide" data-wide-only>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#building">Building Now</a>
+      <a href="index.html#about">About Us</a>
+      <a href="blog.html" class="is-current">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" data-narrow-only id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="drawer">Menu</button>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="index.html#portfolio">Portfolio</a>
+    <a href="index.html#building">Building Now</a>
+    <a href="index.html#about">About Us</a>
+    <a href="blog.html" class="is-current" data-drawer-link>Blog</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="tel:+18324951190" class="drawer-call">Call (832) 495-1190</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Article view (hidden until a post is opened) -->
+  <article class="article-view hidden" id="article-view">
+    <div class="article-inner">
+      <button class="back-btn" data-close-article>← All posts</button>
+      <div class="article-meta">
+        <span id="article-tag"></span>
+        <span class="post-date" id="article-date"></span>
+      </div>
+      <h1 id="article-title"></h1>
+      <img class="article-cover" id="article-cover" alt="">
+      <div class="article-body" id="article-body"></div>
+      <div class="article-actions">
+        <button class="allposts-btn" data-close-article>All posts</button>
+        <a href="index.html#contact" class="contact-btn">Get in touch</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Index view -->
+  <div id="index-view">
+    <section class="blog-hero">
+      <div class="container">
+        <p class="eyebrow eyebrow--sand">Blog</p>
+        <h1>Read Our Blog</h1>
+        <p>Progress on the houses we have going, what we're learning, and what it's like to build with us.</p>
+      </div>
+    </section>
+
+    <section class="post-list">
+      <div class="container">
+
+        <article class="post">
+          <div class="post-grid">
+            <a href="#rayner-avenue" data-post="rayner-avenue">
+              <img src="img/rayner-concept.png" alt="Four houses, one block, on Rayner Avenue">
+            </a>
+            <div>
+              <div class="post-meta">
+                <span>Rayner Avenue</span>
+                <span class="post-date">August 2026</span>
+              </div>
+              <h2><a href="#rayner-avenue" data-post="rayner-avenue">Four houses, one block, on Rayner Avenue</a></h2>
+              <p class="post-excerpt">429, 433, 437 and 441 Rayner are going up together in Fort Worth's 76111. Building four at once on the same street lets us hold one crew, one material order and one standard across all of them.</p>
+              <a href="#rayner-avenue" class="post-readmore" data-post="rayner-avenue">Read the post</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="post">
+          <div class="post-grid">
+            <a href="#waterview-exterior" data-post="waterview-exterior">
+              <img src="img/waterview.png" alt="Picking the exterior for 6000 Waterview" loading="lazy">
+            </a>
+            <div>
+              <div class="post-meta">
+                <span>Waterview Drive</span>
+                <span class="post-date">July 2026</span>
+              </div>
+              <h2><a href="#waterview-exterior" data-post="waterview-exterior">Picking the exterior for 6000 Waterview</a></h2>
+              <p class="post-excerpt">Natural limestone veneer, warm cream brick, cedar-stained siding on the upper balcony and dark bronze windows. How we landed on a warm traditional Texas elevation for the Arlington house.</p>
+              <a href="#waterview-exterior" class="post-readmore" data-post="waterview-exterior">Read the post</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="post">
+          <div class="post-grid">
+            <a href="#first-sixty-days" data-post="first-sixty-days">
+              <img src="img/jones2705-e.jpeg" alt="What the first sixty days look like" loading="lazy">
+            </a>
+            <div>
+              <div class="post-meta">
+                <span>How we build</span>
+                <span class="post-date">June 2026</span>
+              </div>
+              <h2><a href="#first-sixty-days" data-post="first-sixty-days">What the first sixty days look like</a></h2>
+              <p class="post-excerpt">From lot walk to permit to slab. The early stretch is mostly paperwork and decisions, and it sets everything that follows, so we walk every buyer through it before the first truck shows up.</p>
+              <a href="#first-sixty-days" class="post-readmore" data-post="first-sixty-days">Read the post</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="post">
+          <div class="post-grid">
+            <a href="#remodels-to-new-construction" data-post="remodels-to-new-construction">
+              <img src="img/allen1442-main.jpeg" alt="From remodels to new construction" loading="lazy">
+            </a>
+            <div>
+              <div class="post-meta">
+                <span>Our story</span>
+                <span class="post-date">May 2026</span>
+              </div>
+              <h2><a href="#remodels-to-new-construction" data-post="remodels-to-new-construction">From remodels to new construction</a></h2>
+              <p class="post-excerpt">We started in 2017 taking on remodels around Fort Worth. Nine finished homes later we're building from the dirt up, and the way we treat a house hasn't changed.</p>
+              <a href="#remodels-to-new-construction" class="post-readmore" data-post="remodels-to-new-construction">Read the post</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA band -->
+  <section class="blog-cta">
+    <div class="container blog-cta-grid">
+      <div>
+        <h2>Thinking about building with us?</h2>
+        <p>Tell us what you're looking for and we'll get back to you personally.</p>
+      </div>
+      <div class="blog-cta-actions">
+        <a href="index.html#contact" class="cta-solid">Start the conversation</a>
+        <a href="https://www.instagram.com/njhomeconcepts" target="_blank" rel="noopener" class="cta-ghost">@njhomeconcepts</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="img/logo-cream.png" alt="NJ Homes" class="footer-logo--sm" loading="lazy">
+      <span class="footer-lockup footer-lockup--plain">NJ Homes · Fort Worth, TX</span>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:njhomeconcepts@gmail.com">njhomeconcepts@gmail.com</a>
+      <a href="tel:+18324951190">(832) 495-1190</a>
+      <a href="https://www.instagram.com/njhomeconcepts" target="_blank" rel="noopener">@njhomeconcepts</a>
+      <span>© 2026 NJ Homes</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/blog.js"></script>
+</body>
+</html>
