@@ -260,7 +260,10 @@ input, select, textarea, button { font: inherit; color: inherit; }
   justify-content: space-between;
   margin-bottom: clamp(32px, 5vw, 56px);
 }
-.portfolio-head > div { max-width: 34ch; }
+/* Sized in px, not ch: `ch` here resolves against the 16px parent font,
+   not the much larger heading, and squeezed the H2 onto four lines. */
+.portfolio-head > div { max-width: 640px; }
+.portfolio-head .h2 { text-wrap: balance; }
 
 .homes { display: flex; flex-direction: column; gap: clamp(40px, 6vw, 72px); }
 
