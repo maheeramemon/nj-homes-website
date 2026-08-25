@@ -15,9 +15,34 @@ Live at **https://njhomeconcept.com**, hosted on Netlify.
 ## Editing
 
 - Home page: `site/index.html`
-- Blog index: `site/blog.html` · blog post content: `site/js/blog.js`
+- Blog index: `site/blog.html` · one file per post in `site/blog/<slug>.html`
 - Styles: `site/css/styles.css` · behavior: `site/js/main.js`
 - Photos/logos: `site/img/`
+- Crawling: `site/sitemap.xml`, `site/robots.txt`
+
+### Adding a blog post
+
+Each post is a standalone, indexable page. Copy the closest existing file in
+`site/blog/`, then update the `<title>`, meta description, canonical URL, Open
+Graph tags and the three JSON-LD blocks (`BlogPosting`, `BreadcrumbList`, and
+`FAQPage` if the post has a "Common questions" section) — they all repeat the
+post's own title, description, image and date, so none of them can be left
+pointing at the file you copied.
+
+Then add the post to three places: an `<article class="post-card">` inside
+`.post-cards` in `site/blog.html`, its `blogPost` entry in that page's JSON-LD,
+and a `<url>` entry in `site/sitemap.xml`. Linking the new post from two or
+three related posts (`.article-related`) is worth the minute it takes.
+
+The `.post-read` span on the card and in the article's `.article-meta` is the
+estimated read time — body plus FAQ at 200 words per minute, rounded up to at
+least one minute.
+
+Posts used to be JavaScript objects inside `site/js/blog.js`, rendered into
+`blog.html#slug`. That gave every post the same URL, so none of them could rank
+in search. Those four original posts have since been retired; `js/blog.js` now
+only clears their old hash fragments so an inbound `blog.html#slug` link lands
+on the index instead of scrolling nowhere. Leave it in place.
 
 The contact form uses **Netlify Forms** (form name: `interest`); submissions
 appear in the Netlify dashboard and are emailed via the configured form
