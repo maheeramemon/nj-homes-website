@@ -74,6 +74,32 @@
     });
   });
 
+  /* ---------- Hero day/night on touch ----------
+     The design drives this with :hover and :active, but :active does not
+     fire reliably on touch (iOS ignores it on non-interactive elements),
+     so the dissolve never ran on phones. Tap toggles it there instead. */
+
+  var hero = document.getElementById("hero");
+  if (hero && window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+    var tx = 0, ty = 0, moved = false;
+
+    hero.addEventListener("touchstart", function (e) {
+      var t = e.touches[0];
+      tx = t.clientX; ty = t.clientY; moved = false;
+    }, { passive: true });
+
+    hero.addEventListener("touchmove", function (e) {
+      var t = e.touches[0];
+      if (Math.abs(t.clientX - tx) > 10 || Math.abs(t.clientY - ty) > 10) moved = true;
+    }, { passive: true });
+
+    hero.addEventListener("touchend", function (e) {
+      if (moved) return;                             // a scroll, not a tap
+      if (e.target.closest("a, button")) return;     // leave the CTAs alone
+      hero.classList.toggle("is-night");
+    }, { passive: true });
+  }
+
   /* ---------- Interest form (Netlify Forms, AJAX submit) ---------- */
 
   var form = document.getElementById("interest-form");

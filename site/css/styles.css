@@ -175,10 +175,12 @@ input, select, textarea, button { font: inherit; color: inherit; }
   transform: translate(2.1%, -0.9%) scale(1.16);
   transition: opacity 1.8s cubic-bezier(0.33, 0, 0.2, 1), transform 6s ease;
 }
+.hero.is-night .hero-day,
 .hero:hover .hero-day, .hero:active .hero-day {
   filter: brightness(0.55) saturate(0.75);
   transform: translate(-2.1%, 0.9%) scale(1.08);
 }
+.hero.is-night .hero-night,
 .hero:hover .hero-night, .hero:active .hero-night {
   opacity: 1;
   transform: translate(2.1%, -0.9%) scale(1.097);
