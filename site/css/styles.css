@@ -1148,3 +1148,11 @@ input, select, textarea, button { font: inherit; color: inherit; }
   .post-cards { grid-template-columns: repeat(2, 1fr); gap: 18pt; }
   .post-card { break-inside: avoid; page-break-inside: avoid; }
 }
+
+/* The legal name is long; on phones it wrapped the header lockup onto a
+   second line. Tighten the type there so it holds one line. */
+@media (max-width: 860px) {
+  .brand img { height: 46px; }
+  .brand-text { font-size: 11px; letter-spacing: 0.13em; white-space: nowrap; }
+  .brand-text small { font-size: 9.5px; letter-spacing: 0.1em; }
+}
